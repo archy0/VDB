@@ -1,0 +1,25 @@
+﻿@{ ViewData["Title"] = "Ciemi"; }
+
+<table class="ui collapsing table">
+    <tr>
+        <td>Novads</td>
+    </tr>
+    <tr>
+        <td>
+            <select class="ui dropdown" id="novadiIDCiemi">
+                <option class="defaultOption" value=""> Izvēlies adm. vienību!</option>
+                @{ foreach (var obj in ViewBag.novadi)
+                    {
+        <option value='@obj.adR_CD'>@obj.std</option> } }
+            </select>
+        </td>
+    </tr>
+</table>
+
+<br>
+<br>
+
+<a class="ui button" id="atlasitCiemi">Ciemi</a>
+<button class="ui button" id="attir">Attīrīt</button>
+
+<script src="~/js/ciemi.js"></script>

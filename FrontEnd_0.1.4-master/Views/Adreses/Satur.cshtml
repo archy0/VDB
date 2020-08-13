@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+}
+
+@functions{
+    public string Aizvieto(dynamic ccc)
+    {
+
+        if (ccc != null)
+        {
+            return ccc;
+
+
+        }
+        else
+        {
+            return string.Empty;
+
+        }
+    }
+}
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Satur</title>
+        <link rel="stylesheet" href="~/lib/semantic/semantic.css" />
+        <link rel="stylesheet" href="~/lib/semantic/themes/semantic.css" />
+    </head>
+    <body>
+        <table class="ui celled table">
+            <p>@ViewBag.satur[0]</p>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Adrese</th>
+                    <th>Kods</th>
+                    <th>Tips</th>
+                    <th>Statuss</th>
+                    <th>Sākuma dat.</th>
+                    <th>Pēd. modif. dat.</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in ViewBag.satur)
+                {
+                <tr>
+
+                    <td data-label=""></td>
+                    <td data-label="">@Aizvieto(x.std)</td>
+                    <td data-label="">@Aizvieto(x.adR_CD)</td>
+                    <td data-label="">@Aizvieto(x.art_KonstTips.nosaukums)</td>
+                    <td data-label="">@Aizvieto(x.art_KonstStatuss.nosaukums)</td>
+                    <td data-label="">@Aizvieto(x.daT_SAK)</td>
+                    <td data-label="">@Aizvieto(x.daT_MOD)</td>
+                </tr>
+
+                        }
+                </tbody>
+            </table>
+    </body>
+</html>

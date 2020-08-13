@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FrontEnd</title>
+    <link rel="stylesheet" href="~/lib/semantic/semantic.css" />
+    <link rel="stylesheet" href="~/css/teststylesheet.css">
+    @*<link rel="stylesheet" href="~/lib/semantic/themes/semantic.css" />    met ārā 404 kļūdu jo nevar šo atrast, neeksistē norādītā direktorijā*@
+    <script src="~/lib/Microsoft.jQuery.Unobtrusive.Ajax/jquery.unobtrusive-ajax.min.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="ui seven item menu">
+            <a class="item" asp-controller="Home" asp-action="Index" data-ajax="true">Home</a>
+            <a class="item" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <a class="item" asp-controller="Organizacijas" asp-action="Saraksts">Organizācijas</a>
+            <a class="item" asp-controller="Home" asp-action="Ciemi">Ciemi</a>
+            <a class="item" asp-controller="Home" asp-action="NekustamasLietas">Nekustamās lietas</a>
+            <a class="item" asp-controller="Home" asp-action="Dokumenti">Dokumenti</a>
+            <a class="item" asp-controller="Organizacijas" asp-action="SarakstsClass2">Organizācijas2</a>
+        </div>
+        <br>
+        <br>
+    </header>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            &copy; 2020 - FrontEnd - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+</body>
+</html>

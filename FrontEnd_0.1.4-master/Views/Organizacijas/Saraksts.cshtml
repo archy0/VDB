@@ -1,0 +1,30 @@
+﻿@*@{
+        Layout = null;
+    }*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Saraksts</title>
+</head>
+<body>
+    @*@ViewBag.Saraksts*@
+    <table>
+        @foreach (var obj in ViewBag.Saraksts)
+        {
+
+<tr>
+
+    <td class="popup_dati" style="padding-left:20px">@obj.ID</td>
+    <td class="popup_dati" style="padding-left:20px">@obj.NOSAUKUMS</td>
+    <td class="popup_dati" style="padding-left:20px">@obj.DAT_MOD</td>
+    <td class="popup_dati" style="padding-left:20px">
+        <a asp-controller="Home" asp-action="edit" asp-route-id="@obj.ID">Rediģēt</a>
+    </td>
+
+</tr>}
+    </table>
+</body>
+</html>

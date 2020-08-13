@@ -1,0 +1,221 @@
+﻿@{
+    Layout = null;
+}
+@model FrontEnd.Models.Arg_Adrese
+
+
+@using System;
+@using Microsoft.CSharp.RuntimeBinder
+
+
+@functions{
+    public string Aizvieto(dynamic ccc)
+    {
+        var propertyType = ccc.GetType();
+
+        if (ccc != null)
+        {
+            return ccc + ", šo datu tips ir " + propertyType;
+
+
+        }
+        else
+        {
+            return string.Empty;
+
+        }
+    }
+
+
+    public string Aizvieto2(dynamic ccc)
+    {
+
+        try
+        {
+
+            if (ccc != null)
+            {
+                return ccc;
+
+
+            }
+            else
+            {
+                // return string.Empty;
+                return "nav datu";
+
+            }
+
+
+
+        }
+        catch (RuntimeBinderException)
+        {
+            Console.WriteLine("RuntimeBinderException nostrādāja RuntimeBinderException nostrādāja                ");
+            return string.Empty;
+
+        }
+
+
+
+    }
+
+
+
+    //public static string Class1(this object cc)
+    //{
+
+    //       return "I m in Display" ;
+
+    //}
+
+    //public static void addstr(dynamic s1)
+    //{
+    //    Console.WriteLine(s1);
+    //}
+
+
+
+
+    //public dynamic Extension(this string ccc)
+    //{
+    //    if (ccc != null)
+    //    {
+    //        //return ccc;
+    //        return ccc;
+    //    }
+    //    else
+    //    {
+
+    //        //return string.Empty;
+    //        return "nav datu";
+    //    }
+
+    //}
+
+
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+
+    <link rel="stylesheet" href="~/lib/semantic/semantic.css" />
+    <link rel="stylesheet" href="~/lib/semantic/themes/semantic.css" />
+
+</head>
+<body>
+    <table class="ui celled table">
+        <tr>
+            <th>Adrese:</th>
+            <td data-label="">@Model.STD</td>
+        </tr>
+        <tr>
+            <th>Vēsturiskie nosaukumi:</th>
+            <td data-label="">
+                @foreach (var x in Model.AdrArhKods)
+                {<p>@x.STD</p>}
+
+            </td>
+        </tr>
+        @if (Model.Art_KonstApst_Pak != null)
+        {
+            <tr>
+                <th>Apstiprinājuma pakāpe:</th>
+                <td data-label="">
+                    @Model.Art_KonstApst_Pak.NOSAUKUMS
+            </tr>
+        }
+
+        @if (Model.Art_KonstStatuss.NOSAUKUMS != null)
+        {
+            <tr>
+                <th> Adreses statuss:</th>
+                <td data-label=""> @Html.DisplayFor(model => model.Art_KonstStatuss.NOSAUKUMS)</td>
+            </tr>
+        }
+
+        <tr>
+            <th> Vieta, kurā ietilpst adrese:</th>
+
+            <td href> Skatīt </td>
+
+        </tr>
+
+        <tr>
+            <th> Adreses, kuras ietilpst vietā:</th>
+
+            <td> <a href="https://localhost:44308/Adreses/satur/@ViewBag.detalas.adR_CD"> Skatīt </a> </td>
+
+
+        </tr>
+
+        @if (Model.DAT_BEIG != null)
+         { 
+            <tr>
+                <th>Pēdējās modifikācijas datums:</th>
+                <td data-label=""> @Html.DisplayFor(model => model.DAT_BEIG)</td>
+            </tr>
+         }
+
+        @if (Model.CiemiKods != null)
+        {
+
+            <tr>
+                <th> IR 11 ciparu Ielas kods:</th>
+                <td data - label="">
+                    @Html.DisplayFor(model => model.CiemiKods.KODS)
+                </td>
+            </tr>
+        }
+
+
+    </table>
+
+    @if (Model.Art_Dokuments.Count > 0)
+     { 
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>Dok. tips</th>
+                    <th>Pieņemšanas datums</th>
+                    <th>Dokumenta nosaukums</th>
+                    <th>Dok. numurs</th>
+                    <th>Statuss</th>
+                    <th>Pieņēmusi</th>
+                    <th>Arhīva lietas Nr.</th>
+                    <th>Numurs AR</th>
+                    <th>Piezīmes</th>
+                </tr>
+            </thead>
+
+           @foreach (var x in Model.Art_Dokuments)
+            { 
+                <tbody>
+                    <tr>
+                        <td data-label="">@x.Art_KonstKods.NOSAUKUMS</td>
+                        <td data-label="">@x.DATUMS</td>
+                        <td data-label="">@x.NOSAUKUMS</td>
+                        <td data-label="">@x.NUMURS</td>
+                        <td data-label="">@x.Art_KonstStatuss.NOSAUKUMS</td>
+                        <td data-label="">@x.Art_Organiz.NOSAUKUMS</td>
+
+                        <td data-label="">@x.LIETA_NUM</td>
+                        <td data-label="">@x.IENAK_NUM</td>
+                        <td data-label="">@x.PIEZIMES</td>
+
+                    </tr>
+                </tbody>
+            }
+
+
+        </table>
+     }
+
+
+
+
+</body>
+</html>

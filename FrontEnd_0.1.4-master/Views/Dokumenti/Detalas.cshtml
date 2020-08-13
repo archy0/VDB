@@ -1,0 +1,49 @@
+﻿@{ Layout = null; }
+@model FrontEnd.Models.Art_Dokuments
+
+
+@using System;
+@using Microsoft.CSharp.RuntimeBinder
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detalas</title>
+
+    <link rel="stylesheet" href="~/lib/semantic/semantic.css" />
+    <link rel="stylesheet" href="~/lib/semantic/themes/semantic.css" />
+
+</head>
+<body>
+    <table class="ui celled striped table">
+        <tr>
+            <td></td>
+            <td>Adrese</td>
+            <td>Kods</td>
+            <td>Tips</td>
+            <td>Statuss</td>
+            <td>Sākuma datums</td>
+            <td>Pēdējais modif. datums</td>
+        </tr>
+
+        <tbody>
+            @{
+                var json = ViewBag.dokDetalas;
+                Console.WriteLine(json);
+                for (int i = 0; i < json["arg_Adrese"].Count; i++) {
+                    <tr>
+                        <td>Skatīt</td>
+                        <td>@json["arg_Adrese"][i]["std"]</td>
+                        <td>@json["arg_Adrese"][i]["adR_CD"]</td>
+                        <td>@json["arg_Adrese"][i]["art_KonstTips"]["nosaukums"]</td>
+                        <td>@json["arg_Adrese"][i]["art_KonstStatuss"]["nosaukums"]</td>
+                        <td>@json["arg_Adrese"][i]["daT_SAK"]</td>
+                        <td>@json["arg_Adrese"][i]["daT_MOD"]</td>
+                    </tr>
+                }
+             }
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,68 @@
+﻿@{ ViewData["Title"] = "Dokumenti"; }
+
+<table class="ui collapsing table">
+    <thead>
+        <tr>
+            <td>Novadi un rep. nozīmes pilsētas</td>
+            <td class="pilsetasClass">Pilsētas, pagasti</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>
+                <span id="novads">
+                    <span class="raj2">
+                        <select class="ui dropdown" id="novadiID" @*onchange="dokumentiOnSelectChange"*@>
+                            <option class="defaultOption" value=""> Izvēlies adm. vienību!</option>
+                            @{ foreach (var obj in ViewBag.novadi) {
+                    <option value='@obj.adR_CD'>@obj.std</option>
+ } }
+                        </select>
+
+                    </span>
+                </span>
+            </td>
+
+            <td id="ter3_rnd" class="pilsetasClass">
+                <span id="pagasts">
+                    <span id="nov2">
+                        <select class="ui dropdown" id="pagastiID" @*onchange="dokumentiOnSelectChange"*@>
+                            <option class="defaultOption" value="">Izvēlies pagastu!</option>
+                        </select>
+
+                    </span>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<br>
+
+<button class="ui button" id="atlasitDok">Dokumenti</button>
+<button class="ui button" id="attir">Attīrīt</button>
+
+<div id="objSkaits">Topošie atlases rezultāti...<br></div>
+
+<table id="testTable" class="ui celled striped selectable table">
+    <tbody id="rezultati">
+    </tbody>
+</table>
+
+<div id="pagingButtons">
+    <button class="ui button" id="firstPage">&lt;&lt;</button>
+    <button class="ui button" id="prevPage">&lt;</button>
+    <button class="ui button" id="nextPage">&gt;</button>
+    <button class="ui button" id="lastPage">&gt;&gt;</button>
+</div>
+
+
+<div id="loader" style="display: none">
+    <br><br>
+    <div class="ui active inline loader"></div>
+    <br><br>
+</div>
+
+<script src="~/js/dokumenti.js"></script>

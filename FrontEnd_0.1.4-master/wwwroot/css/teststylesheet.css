@@ -1,0 +1,67 @@
+﻿html, body {
+    height: 100%;
+}
+
+.container {
+    min-height: 100%;
+}
+
+.footer {
+    position: relative;
+}
+
+.footer.footer-content{
+    position: absolute;
+    bottom: 0px;
+    text-align: left;
+    width: 100%;
+}
+
+.custom-select {
+    position: relative;
+}
+.custom-select select {
+    cursor: pointer;
+    word-wrap: break-word;
+    line-height: 1em;
+    white-space: normal;
+    outline: 0;
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+    min-width: 14em;
+    min-height: 2.71428571em;
+    background: #FFFFFF;
+    display: inline-block;
+    padding: 0.78571429em 2.1em 0.78571429em 1em;
+    color: rgba(0, 0, 0, 0.87);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    border-top-color: rgba(34, 36, 38, 0.15);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: rgba(34, 36, 38, 0.15);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: rgba(34, 36, 38, 0.15);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgba(34, 36, 38, 0.15);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    border-radius: 0.28571429rem;
+    border-top-left-radius: 0.285714rem;
+    border-top-right-radius: 0.285714rem;
+    border-bottom-right-radius: 0.285714rem;
+    border-bottom-left-radius: 0.285714rem;
+    -webkit-transition: width 0.1s ease, -webkit-box-shadow 0.1s ease;
+    transition: width 0.1s ease, -webkit-box-shadow 0.1s ease;
+    transition: box-shadow 0.1s ease, width 0.1s ease;
+    transition: box-shadow 0.1s ease, width 0.1s ease, -webkit-box-shadow 0.1s ease;
+}
+

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VDB", "VDB.csproj", "{F08F3FA5-772D-48CE-BBE1-0CA19B5A39D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontEnd", "..\FrontEnd_0.1.4-master\FrontEnd.csproj", "{BCCBE520-301E-4930-82F8-77F2EF0D03CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F08F3FA5-772D-48CE-BBE1-0CA19B5A39D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F08F3FA5-772D-48CE-BBE1-0CA19B5A39D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F08F3FA5-772D-48CE-BBE1-0CA19B5A39D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F08F3FA5-772D-48CE-BBE1-0CA19B5A39D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCCBE520-301E-4930-82F8-77F2EF0D03CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCCBE520-301E-4930-82F8-77F2EF0D03CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCCBE520-301E-4930-82F8-77F2EF0D03CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCCBE520-301E-4930-82F8-77F2EF0D03CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {760DD8DD-D82D-4B26-A8F6-9CA7AB5C7F48}
+	EndGlobalSection
+EndGlobal
