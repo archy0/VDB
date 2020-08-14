@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using System;
 using System.Collections.Generic;
@@ -181,7 +181,7 @@ namespace VDB.Controllers
 
             List<Arg_Adrese> pagasti_List = new List<Arg_Adrese>();
 
-            pagasti_List = (from pagasts in _context.Arg_Adrese_ where pagasts.VKUR_CD == NovadsID && (pagasts.TIPS_CD == 104 || pagasts.TIPS_CD == 105) orderby pagasts.T6 ascending select pagasts).ToList();
+            pagasti_List = (from pagasts in _context.Arg_Adrese_ where pagasts.VKUR_CD == NovadsID && pagasts.STATUSS == "EKS" && (pagasts.TIPS_CD == 104 || pagasts.TIPS_CD == 105) orderby pagasts.T6 ascending select pagasts).ToList();
 
             //var novadi = _context.Arg_Adrese_.Where(n => n.tips_cd == 113 && n.STATUSS == "EKS" || n.tips_cd == 104 && n.STATUSS == "EKS").ToList();
 
@@ -253,11 +253,18 @@ namespace VDB.Controllers
 
             //}
 
-            if (filterArg_AdreseDTO.VKUR_CD != 0)
+            if (filterArg_AdreseDTO.PagastsID != 0)
             {
                 adreseQueryable = adreseQueryable.Where(o => o.VKUR_CD.Equals(filterArg_AdreseDTO.VKUR_CD));
 
             }
+
+            //if (filterArg_AdreseDTO.NovadsID != 0 && filterArg_AdreseDTO.PagastiID == 0)
+            //{
+
+            //    adreseQueryable = adreseQueryable.Where(o => o.VKUR_CD.Equals(filterArg_AdreseDTO.PagastiID));
+
+            //}
 
             if (!string.IsNullOrWhiteSpace(filterArg_AdreseDTO.STATUSS))
             {
@@ -266,15 +273,15 @@ namespace VDB.Controllers
 
             //https://localhost:44302/api/adreses/filter?DAT_SAK=2011-07-07&STD=dzirn
 
-                    /*
-                if (value.HasValue)
-                {
-                    Console.WriteLine(value.Value);
-                }
-                else
-                {
-                    Console.WriteLine(0);
-                }*/
+            /*
+        if (value.HasValue)
+        {
+            Console.WriteLine(value.Value);
+        }
+        else
+        {
+            Console.WriteLine(0);
+        }*/
 
             if (filterArg_AdreseDTO.DAT_SAK != DateTime.MinValue)
 
@@ -284,7 +291,7 @@ namespace VDB.Controllers
 
             if (filterArg_AdreseDTO.DAT_MOD != DateTime.MinValue) // visi null datumi lasās kā '01.01.0001 00:00:00' kas ir arī MinValue
             {
-               
+
                 adreseQueryable = adreseQueryable.Where(o => o.dat_mod.Date.Equals(filterArg_AdreseDTO.DAT_MOD));
                 // dat_mod ielasot null nestrādā, ielaspt DaeTime strādā.
             }
@@ -310,15 +317,27 @@ namespace VDB.Controllers
         }
 
         [HttpGet("filterPaginated")]
-        public async Task<ActionResult<List<Arg_AdreseDTO>>> FilterPaginated([FromQuery] FilterArg_AdreseDTO filterArg_AdreseDTO, int page, int pageSize) {
+        public async Task<ActionResult<List<Arg_AdreseDTO>>> FilterPaginated([FromQuery] FilterArg_AdreseDTO filterArg_AdreseDTO, int page, int pageSize)
+        {
             var adreseQueryable = _context.Arg_Adrese_
                 .AsQueryable();
 
-            if (!string.IsNullOrWhiteSpace(filterArg_AdreseDTO.STD)) {
+
+            Console.WriteLine("arg_Adrese.NovadsID: " + filterArg_AdreseDTO.NovadsID);
+            Console.WriteLine("arg_Adrese.PagastiID: " + filterArg_AdreseDTO.PagastsID);
+            Console.WriteLine("arg_Adrese.ADR_CD: " + filterArg_AdreseDTO.ADR_CD);
+            Console.WriteLine("arg_Adrese.STD: " + filterArg_AdreseDTO.STD);
+            Console.WriteLine("arg_Adrese.tips_cd: " + filterArg_AdreseDTO.TIPS_CD);
+            Console.WriteLine("arg_Adrese.STATUSS: " + filterArg_AdreseDTO.STATUSS);
+            Console.WriteLine("arg_Adrese.DAT_SAK: " + filterArg_AdreseDTO.DAT_SAK);
+
+            if (!string.IsNullOrWhiteSpace(filterArg_AdreseDTO.STD))
+            {
                 adreseQueryable = adreseQueryable.Where(x => x.STD.Contains(filterArg_AdreseDTO.STD));
             }
 
-            if (filterArg_AdreseDTO.TIPS_CD != 0) {
+            if (filterArg_AdreseDTO.TIPS_CD != 0)
+            {
                 adreseQueryable = adreseQueryable.Where(o => o.TIPS_CD.Equals(filterArg_AdreseDTO.TIPS_CD));
 
             }
@@ -335,17 +354,58 @@ namespace VDB.Controllers
             //    adreseQueryable = adreseQueryable.Where(o => o.VKUR_CD.Equals(filterArg_AdreseDTO.VKUR_CD_NOV));
             //}
 
-            adreseQueryable = adreseQueryable.Where(o => o.VKUR_CD.Equals(
-                filterArg_AdreseDTO.VKUR_CD != 0 ? filterArg_AdreseDTO.VKUR_CD : filterArg_AdreseDTO.VKUR_CD_NOV
-                )); //ja nav selectionā izvelēts pagasts, tad atlasa no novada - iegūst datus par pagastiem
 
-            
+            //adreseQueryable = adreseQueryable.Where(o => o.VKUR_CD.Equals(
+            //    filterArg_AdreseDTO.VKUR_CD != 0 ? filterArg_AdreseDTO.VKUR_CD : filterArg_AdreseDTO.VKUR_CD_NOV
+            //    )); //ja nav selectionā izvelēts pagasts, tad atlasa no novada - iegūst datus par pagastiem
+            if (filterArg_AdreseDTO.PagastsID != 0)
+            {
+                Console.WriteLine("filterArg_AdreseDTO.PagastsID != 0");
+                adreseQueryable = adreseQueryable.Where(o => o.VKUR_CD.Equals(filterArg_AdreseDTO.PagastsID));
 
-            if (!string.IsNullOrWhiteSpace(filterArg_AdreseDTO.STATUSS)) {
+            }
+
+            if (filterArg_AdreseDTO.NovadsID != 0 && filterArg_AdreseDTO.PagastsID == 0)
+            {
+                List<Arg_Adrese> pagasti_List = new List<Arg_Adrese>();// deklarēju listi, kurā būs iekšā pagasti
+
+                pagasti_List = _context.Arg_Adrese_.Where(d => d.VKUR_CD == filterArg_AdreseDTO.NovadsID).ToList();//ielasu iekšā noteiktos pagastus
+
+                int sizeOfList = pagasti_List.Count;//Cik objektu ir listē
+
+                Console.WriteLine("sizeOfList (pagasti_List): " + sizeOfList);
+
+                Decimal[] pagastiCDList = new Decimal[sizeOfList];
+
+                int counter = 0;
+
+                foreach (Arg_Adrese item in pagasti_List)
+                {
+                    // Console.WriteLine("counter++ : " + counter);
+                    pagastiCDList[counter++] = item.ADR_CD;
+                    // Console.WriteLine("counter++ : " + counter);
+                }
+
+                foreach (Decimal item in pagastiCDList)
+                {
+                    //Console.WriteLine("pagastiCDList item: rezultāts: " + item + " , tips ir: " + item.GetType());
+                }
+
+
+                adreseQueryable = adreseQueryable
+                    .Where(o => pagastiCDList.Contains(o.VKUR_CD));
+                //.Where(o => o.VKUR_CD.Equals(filterArg_AdreseDTO.PagastiID));
+
+            }
+
+
+            if (!string.IsNullOrWhiteSpace(filterArg_AdreseDTO.STATUSS))
+            {
                 adreseQueryable = adreseQueryable.Where(o => o.STATUSS.Equals(filterArg_AdreseDTO.STATUSS));
             }
 
-            if (filterArg_AdreseDTO.DAT_SAK != DateTime.MinValue) {
+            if (filterArg_AdreseDTO.DAT_SAK != DateTime.MinValue)
+            {
                 adreseQueryable = adreseQueryable.Where(o => o.DAT_SAK.Date.Equals(filterArg_AdreseDTO.DAT_SAK));
             }
 
@@ -373,7 +433,8 @@ namespace VDB.Controllers
 
             var paginatedAdreses = await PaginatedList<Arg_Adrese>.Create(adreses, page, pageSize);
 
-            var metadata = new {
+            var metadata = new
+            {
                 paginatedAdreses.PageIndex,
                 paginatedAdreses.TotalPages,
                 paginatedAdreses.ElementCount,
@@ -385,6 +446,7 @@ namespace VDB.Controllers
 
             return _mapper.Map<List<Arg_AdreseDTO>>(paginatedAdreses);
         }
+
 
 
         // PUT: api/Adreses/5
