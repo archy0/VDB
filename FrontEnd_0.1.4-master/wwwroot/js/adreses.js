@@ -1,4 +1,4 @@
-﻿var page = 1;
+var page = 1;
 var pageSize = 15;
 var totalPages;
 
@@ -47,9 +47,13 @@ function GetAdreses(page, pageSize) {
 
     let ID_dala = document.getElementById("adr_ID").value;
 
-    //let rezultati = document.getElementById("rezultati");
+    console.log("atlasit");
+    console.log("novads: ", novads);
+    console.log("pagasts: ", pagasts);
+    console.log("veids: ", veids);
+    console.log("statuss: ", statuss);
+    console.log("nosauk_dala: ", nosauk_dala);
 
-    //let select = document.getElementById("pagastiID");
 
     //loading ikona
     //let objSkaits = document.getElementById("objSkaits");
@@ -64,7 +68,8 @@ function GetAdreses(page, pageSize) {
         "&VeidsID=" + veids +
         "&Statuss=" + statuss +
         "&Nosauk_dala=" + nosauk_dala +
-        "&VKUR_CD_NOV=" + novads +
+        "&NovadsID=" + novads +
+        // "&VKUR_CD_NOV=" + novads +
         "&page=" + page +
         "&pageSize=" + pageSize, true);
 
