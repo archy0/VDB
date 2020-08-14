@@ -1,4 +1,4 @@
-﻿using ClosedXML.Excel;
+using ClosedXML.Excel;
 using FrontEnd.Models;
 using Microsoft.AspNetCore.Http;//IFormCollection
 using Microsoft.AspNetCore.Mvc;
@@ -70,17 +70,18 @@ namespace FrontEnd.Controllers {
         }
 
         //https://localhost:44308/DBRezultati/PagastsID=100010804&VeidsID=107&Statuss=EKS&Nosauk_dala=dzi
-        //[Route("DBRezultati/PagastsID={PagastsID}&VeidsID={VeidsID}&Statuss={Statuss}&Nosauk_dala={Nosauk_dala}")]
         [Route("DBRezultati")]
-
+        [HttpGet("NovadsID:{NovadsID}")]
         [HttpGet("VeidsID:{VeidsID}")]
         [HttpGet("Statuss:{Statuss}")]
         [HttpGet("PagastsID:{PagastsID}")]
         [HttpGet("Nosauk_dala:{Nosauk_dala}")]
         [HttpGet("Page:{page}")]
         [HttpGet("PageSize:{pageSize}")]
-        public async Task<JsonDocument> DBRezultati(int PagastsID, int VeidsID, string Statuss, string Nosauk_dala, int VKUR_CD_NOV, int page, int pageSize) {
+        public async Task<JsonDocument> DBRezultati(int PagastsID, int VeidsID, string Statuss, string Nosauk_dala, int NovadsID, int page, int pageSize)
+        {
             Console.WriteLine("Tiek izpildīts DBRezultati");
+            Console.WriteLine("NovadsID: " + NovadsID);
             Console.WriteLine("PagastsID: " + PagastsID);
             Console.WriteLine("VeidsID: " + VeidsID);
             Console.WriteLine("Statuss: " + Statuss);
@@ -90,11 +91,12 @@ namespace FrontEnd.Controllers {
 
             var request = new HttpRequestMessage(HttpMethod.Get,
                 "https://localhost:44303/api/adreses/filterPaginated?" +
-                "VKUR_CD=" + PagastsID +
+                //"VKUR_CD=" + PagastsID +
+                "PagastsID=" + PagastsID +
                 "&TIPS_CD=" + VeidsID +
                 "&STATUSS=" + Statuss +
                 "&STD=" + Nosauk_dala +
-                "&VKUR_CD_NOV=" + VKUR_CD_NOV +
+                "&NovadsID=" + NovadsID +
                 "&page=" + page +
                 "&pageSize=" + pageSize
                 );
@@ -115,14 +117,17 @@ namespace FrontEnd.Controllers {
             JsonDocument jsonDocument;
             JObject jsonObject;
 
-            if (response.IsSuccessStatusCode) {
+            if (response.IsSuccessStatusCode)
+            {
                 using var responseStream = await response.Content.ReadAsStreamAsync();
 
-                if (response.Headers.TryGetValues("Pagination", out IEnumerable<string> values)) {
+                if (response.Headers.TryGetValues("Pagination", out IEnumerable<string> values))
+                {
                     string session = values.First();
                     Response.Headers.Add("Pagination", session);
 
-                } else StatusCode(500); //internal server error
+                }
+                else StatusCode(500); //internal server error
 
                 jsonString = await response.Content.ReadAsStringAsync();
                 // Branches = await JsonSerializer.DeserializeAsync <IEnumerable<GitHubBranch>>(responseStream);
@@ -144,7 +149,9 @@ namespace FrontEnd.Controllers {
 
                 //    return null;
                 //}
-            } else {
+            }
+            else
+            {
                 jsonArray = null;
                 jsonDocument = null;
                 jsonObject = null;
