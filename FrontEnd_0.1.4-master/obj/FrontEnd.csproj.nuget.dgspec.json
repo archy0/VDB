@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\Desktop\\Proj\\Dev\\VDB-master\\FrontEnd_0.1.4-master\\FrontEnd.csproj": {}
+    "C:\\Users\\artursk\\Documents\\Proj\\Dev\\FrontEnd_0.1.4-master\\FrontEnd.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\Desktop\\Proj\\Dev\\VDB-master\\FrontEnd_0.1.4-master\\FrontEnd.csproj": {
+    "C:\\Users\\artursk\\Documents\\Proj\\Dev\\FrontEnd_0.1.4-master\\FrontEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\Proj\\Dev\\VDB-master\\FrontEnd_0.1.4-master\\FrontEnd.csproj",
+        "projectUniqueName": "C:\\Users\\artursk\\Documents\\Proj\\Dev\\FrontEnd_0.1.4-master\\FrontEnd.csproj",
         "projectName": "FrontEnd",
-        "projectPath": "C:\\Users\\Administrator\\Desktop\\Proj\\Dev\\VDB-master\\FrontEnd_0.1.4-master\\FrontEnd.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Desktop\\Proj\\Dev\\VDB-master\\FrontEnd_0.1.4-master\\obj\\",
+        "projectPath": "C:\\Users\\artursk\\Documents\\Proj\\Dev\\FrontEnd_0.1.4-master\\FrontEnd.csproj",
+        "packagesPath": "C:\\Users\\artursk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\artursk\\Documents\\Proj\\Dev\\FrontEnd_0.1.4-master\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\artursk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

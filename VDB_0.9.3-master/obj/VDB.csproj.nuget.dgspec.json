@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\Desktop\\Proj\\Dev\\VDB-master\\VDB_0.9.3-master\\VDB.csproj": {}
+    "C:\\Users\\artursk\\Documents\\Proj\\Dev\\VDB_0.9.3-master\\VDB.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\Desktop\\Proj\\Dev\\VDB-master\\VDB_0.9.3-master\\VDB.csproj": {
+    "C:\\Users\\artursk\\Documents\\Proj\\Dev\\VDB_0.9.3-master\\VDB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\Proj\\Dev\\VDB-master\\VDB_0.9.3-master\\VDB.csproj",
+        "projectUniqueName": "C:\\Users\\artursk\\Documents\\Proj\\Dev\\VDB_0.9.3-master\\VDB.csproj",
         "projectName": "VDB",
-        "projectPath": "C:\\Users\\Administrator\\Desktop\\Proj\\Dev\\VDB-master\\VDB_0.9.3-master\\VDB.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Desktop\\Proj\\Dev\\VDB-master\\VDB_0.9.3-master\\obj\\",
+        "projectPath": "C:\\Users\\artursk\\Documents\\Proj\\Dev\\VDB_0.9.3-master\\VDB.csproj",
+        "packagesPath": "C:\\Users\\artursk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\artursk\\Documents\\Proj\\Dev\\VDB_0.9.3-master\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\artursk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -111,7 +111,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

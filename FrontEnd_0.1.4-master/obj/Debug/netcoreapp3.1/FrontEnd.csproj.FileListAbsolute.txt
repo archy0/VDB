@@ -955,3 +955,4 @@ C:\Users\Administrator\Desktop\Proj\Dev\VDB-master\FrontEnd_0.1.4-master\obj\Deb
 C:\Users\Administrator\Desktop\Proj\Dev\VDB-master\FrontEnd_0.1.4-master\obj\Debug\netcoreapp3.1\Razor\Views\Adreses\_Details.cshtml.g.cs
 C:\Users\Administrator\Desktop\Proj\Dev\VDB-master\FrontEnd_0.1.4-master\obj\Debug\netcoreapp3.1\FrontEnd.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\Proj\Dev\VDB-master\FrontEnd_0.1.4-master\obj\Debug\netcoreapp3.1\FrontEnd.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\artursk\Documents\Proj\Dev\FrontEnd_0.1.4-master\obj\Debug\netcoreapp3.1\Razor\Views\Adreses\_Details.cshtml.g.cs
